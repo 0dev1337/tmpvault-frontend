@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@import "@heroui/styles"; 
+
+/*
+ * HeroUI Theme Customization
+ * Add this to your global.css after importing @heroui/styles
+ * Only includes base variables from variables.css
+ * @see https://heroui.com/docs/react/getting-started/theming
+ */
+
+ :root {
+  --lb-bg: #dcdee2;
+  --lb-bg-texture: rgba(255, 255, 255, 0.35);
+  --lb-text: #2c2c2c;
+  --lb-text-muted: #5a5a5a;
+  --lb-blue-pale: #c8e4f7;
+  --lb-blue-mid: #8ec5eb;
+  --lb-blue-active: #4f9ad4;
+  --lb-blue-active-deep: #3d87c4;
+  --lb-border: #9ec9ea;
+  --lb-drop: #d6eefb;
+  --lb-drop-border: #7eb8e0;
+}
+
+.dark {
+  --lb-bg: #1a1d22;
+  --lb-bg-texture: rgba(255, 255, 255, 0.03);
+  --lb-text: #e8eaed;
+  --lb-text-muted: #9aa0a6;
+  --lb-blue-pale: #2a3f55;
+  --lb-blue-mid: #3d5a7a;
+  --lb-blue-active: #5a9fd4;
+  --lb-blue-active-deep: #4a8fc4;
+  --lb-border: #3d5266;
+  --lb-drop: #243240;
+  --lb-drop-border: #4a6a88;
+}
+
+@layer utilities {
+  .lb-page-bg {
+    background-color: var(--lb-bg);
+    background-image:
+      radial-gradient(
+        circle at 20% 30%,
+        var(--lb-bg-texture) 0%,
+        transparent 50%
+      ),
+      radial-gradient(circle at 80% 70%, var(--lb-bg-texture) 0%, transparent 45%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.015) 2px,
+        rgba(0, 0, 0, 0.015) 4px
+      );
+  }
+
+  .dark .lb-page-bg {
+    background-image:
+      radial-gradient(circle at 25% 20%, var(--lb-bg-texture) 0%, transparent 40%),
+      radial-gradient(circle at 75% 80%, var(--lb-bg-texture) 0%, transparent 40%);
+  }
+}
