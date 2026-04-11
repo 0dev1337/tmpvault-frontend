@@ -14,32 +14,36 @@ export type UploadErrorBody = {
   error?: string;
 };
 
-/** Browser: direct backend URL if set; otherwise same-origin paths (use Next rewrites). */
+/** Public backend origin for uploads only (not proxied through Next). */
 export function getApiOrigin(): string {
   return (process.env.NEXT_PUBLIC_TMPVAULT_API_URL ?? "").replace(/\/$/, "");
 }
 
+function uploadApiBase(): string {
+  const o = getApiOrigin();
+  if (o) return o;
+  if (process.env.NODE_ENV === "development") {
+    return "http://127.0.0.1:8080";
+  }
+  throw new Error(
+    "Set NEXT_PUBLIC_TMPVAULT_API_URL to your tmpvault-backend origin (uploads are sent directly, not via Next).",
+  );
+}
+
 export function uploadEndpoint(): string {
-  const o = getApiOrigin();
-  return o ? `${o}/api/v1/upload` : "/api/v1/upload";
+  return `${uploadApiBase().replace(/\/$/, "")}/api/v1/upload`;
 }
 
+/** Same-origin; Next rewrites proxy GET /download/* to the backend. */
 export function downloadPath(fileId: string): string {
-  const o = getApiOrigin();
-  return o ? `${o}/download/${encodeURIComponent(fileId)}` : `/download/${encodeURIComponent(fileId)}`;
+  return `/download/${encodeURIComponent(fileId)}`;
 }
 
-/** Full URL for display/copy (uses current origin when using Next rewrites). */
 export function downloadUrlAbsolute(fileId: string): string {
   if (typeof window === "undefined") {
-    const o = getApiOrigin();
-    return o
-      ? `${o}/download/${encodeURIComponent(fileId)}`
-      : `/download/${encodeURIComponent(fileId)}`;
+    return downloadPath(fileId);
   }
-  const o = getApiOrigin();
-  if (o) return `${o}/download/${encodeURIComponent(fileId)}`;
-  return `${window.location.origin}/download/${encodeURIComponent(fileId)}`;
+  return `${window.location.origin}${downloadPath(fileId)}`;
 }
 
 function parseUploadResponse(

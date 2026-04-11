@@ -6,12 +6,11 @@ const backend =
 
 const nextConfig: NextConfig = {
   async rewrites() {
-    if (process.env.NEXT_PUBLIC_TMPVAULT_API_URL) {
-      return [];
-    }
     return [
-      { source: "/api/v1/:path*", destination: `${backend}/api/v1/:path*` },
-      { source: "/download/:path*", destination: `${backend}/download/:path*` },
+      {
+        source: "/download/:path*",
+        destination: `${backend}/download/:path*`,
+      },
     ];
   },
 };
