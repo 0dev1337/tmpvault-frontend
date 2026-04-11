@@ -31,7 +31,10 @@ export function FileDropZone({
         return;
       }
       if (process.env.NODE_ENV === "development") {
-        console.log("[FileDropZone]", [...list].map((f) => f.name));
+        console.log(
+          "[FileDropZone]",
+          [...list].map((f) => f.name),
+        );
       }
     },
     [onFiles],
@@ -89,8 +92,7 @@ export function FileDropZone({
           hasFile
             ? "text-[var(--lb-text)]"
             : "text-sm font-medium text-[var(--lb-blue-active-deep)]",
-        ].join(" ")}
-      >
+        ].join(" ")}>
         {hasFile && selectedFile ? (
           <>
             <span className="max-w-full truncate text-base font-medium text-[var(--lb-text)]">
