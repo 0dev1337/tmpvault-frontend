@@ -1,3 +1,5 @@
+import { IS_DEV, PUBLIC_BACKEND_ORIGIN } from "@/lib/env";
+
 /**
  * tmpvault-backend: POST /api/v1/upload, GET /download/:file_id
  * @see tmpvault-backend README
@@ -16,13 +18,13 @@ export type UploadErrorBody = {
 
 /** Public backend origin for uploads only (not proxied through Next). */
 export function getApiOrigin(): string {
-  return (process.env.NEXT_PUBLIC_TMPVAULT_API_URL ?? "").replace(/\/$/, "");
+  return PUBLIC_BACKEND_ORIGIN;
 }
 
 function uploadApiBase(): string {
   const o = getApiOrigin();
   if (o) return o;
-  if (process.env.NODE_ENV === "development") {
+  if (IS_DEV) {
     return "http://127.0.0.1:8080";
   }
   throw new Error(

@@ -1,11 +1,10 @@
 import { BoxLogo } from "@/components/BoxLogo";
 import { SiteFooterNav } from "@/components/SiteFooterNav";
 import { UploadPanel } from "@/components/UploadPanel";
+import { SITE_URL } from "@/lib/env";
 
 const DEMO_GOAL = 1660;
 const DEMO_CURRENT = 1570;
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 export const dynamic = "force-static";
 
 export default function Home() {
@@ -14,7 +13,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "TmpVault",
-    url: siteUrl,
+    url: SITE_URL,
     description:
       "Anonymous temporary file sharing with expiring links and zero-account uploads.",
   };

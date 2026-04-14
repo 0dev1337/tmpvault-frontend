@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
+import { IS_DEV } from "@/lib/env";
 import { formatFileSizeMb } from "@/lib/utils";
 
 type FileDropZoneProps = {
@@ -30,7 +31,7 @@ export function FileDropZone({
         onFiles(list);
         return;
       }
-      if (process.env.NODE_ENV === "development") {
+      if (IS_DEV) {
         console.log(
           "[FileDropZone]",
           [...list].map((f) => f.name),
