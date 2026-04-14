@@ -4,14 +4,29 @@ import { UploadPanel } from "@/components/UploadPanel";
 
 const DEMO_GOAL = 1660;
 const DEMO_CURRENT = 1570;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
+export const dynamic = "force-static";
 
 export default function Home() {
   const goalPct = Math.min(100, Math.round((DEMO_CURRENT / DEMO_GOAL) * 100));
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "TmpVault",
+    url: siteUrl,
+    description:
+      "Anonymous temporary file sharing with expiring links and zero-account uploads.",
+  };
 
   return (
     <div className="lb-page-bg relative flex min-h-screen flex-col text-[var(--lb-text)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <div className="mt-16 flex flex-col items-center gap-4">
-        <div className="flex flex-row items-center justify-center gap-6">
+        <div className="flex flex-row items-center justify-center gap-1">
           <div className="flex flex-col">
             <h1 className="font-sans text-4xl font-bold tracking-tight text-[var(--lb-text)] dark:text-[var(--lb-text)]">
               TmpVault

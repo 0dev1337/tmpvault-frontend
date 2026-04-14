@@ -1,23 +1,7 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteFooterNav() {
-  const [mounted, setMounted] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    setIsDark(document.documentElement.classList.contains("dark"));
-  }, []);
-
-  function toggleTheme() {
-    const next = !document.documentElement.classList.contains("dark");
-    document.documentElement.classList.toggle("dark", next);
-    setIsDark(next);
-  }
-
   const linkClass = "text-[#2d7ab8] hover:underline dark:text-[#7eb8e0]";
 
   return (
@@ -39,16 +23,10 @@ export function SiteFooterNav() {
       <Link className={linkClass} href="mailto:contact@tmpvault.com">
         Contact
       </Link>
-      {mounted ? (
-        <>
-          <span aria-hidden className="select-none px-1">
-            |
-          </span>
-          <button className={linkClass} type="button" onClick={toggleTheme}>
-            {isDark ? "Go Light?" : "Go Dark?"}
-          </button>
-        </>
-      ) : null}
+      <span aria-hidden className="select-none px-1">
+        |
+      </span>
+      <ThemeToggle className={linkClass} />
     </nav>
   );
 }
