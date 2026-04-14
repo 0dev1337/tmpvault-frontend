@@ -7,7 +7,7 @@ export function SiteFooterNav() {
   return (
     <nav
       aria-label="Site links"
-      className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-sm text-[var(--lb-text-muted)]">
+      className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-[var(--lb-text-muted)] sm:gap-x-1">
       <Link className={linkClass} href="#faq">
         FAQ
       </Link>

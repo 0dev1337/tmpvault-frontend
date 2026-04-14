@@ -48,7 +48,7 @@ export function UploadPanel() {
   }
 
   return (
-    <div className="flex w-full flex-col gap-4">
+    <div className="flex w-full flex-col gap-3 sm:gap-4">
       <ExpiryPicker value={expiry} onChange={setExpiry} />
       <FileNamePicker value={fileNameLength} onChange={setFileNameLength} />
       <FileDropZone
@@ -68,7 +68,7 @@ export function UploadPanel() {
         type="button"
         onClick={submit}
         disabled={!file || busy}
-        className="w-full rounded-full border border-[var(--lb-blue-active-deep)] bg-[var(--lb-blue-active-deep)] px-4 py-2.5 text-sm font-bold text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-95"
+        className="w-full rounded-full border border-[var(--lb-blue-active-deep)] bg-[var(--lb-blue-active-deep)] px-4 py-2.5 text-sm font-bold text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-95 sm:py-3"
       >
         {busy ? "Uploading…" : "Upload"}
       </button>

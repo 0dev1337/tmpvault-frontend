@@ -24,32 +24,28 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
-      <div className="mt-16 flex flex-col items-center gap-4">
-        <div className="flex flex-row items-center justify-center gap-1">
-          <div className="flex flex-col">
-            <h1 className="font-sans text-4xl font-bold tracking-tight text-[var(--lb-text)] dark:text-[var(--lb-text)]">
+      <div className="mx-auto mt-8 flex w-full max-w-md flex-col items-center gap-4 px-4 pb-8 sm:mt-12 sm:px-6">
+        <div className="flex items-center justify-center gap-1 sm:gap-2.5">
+          <div className="min-w-0">
+            <h1 className="font-sans text-3xl font-bold tracking-tight text-[var(--lb-text)] dark:text-[var(--lb-text)] sm:text-4xl">
               TmpVault
             </h1>
-            <p className="mt-0.5 text-sm font-normal text-[var(--lb-text-muted)]">
+            <p className="mt-0.5 text-sm font-normal text-[var(--lb-text-muted)] sm:text-base">
               Temporary file hosting
             </p>
           </div>
-          <BoxLogo className="shrink-0" />
+          <BoxLogo className="h-11 w-11 shrink-0 sm:h-[4.5rem] sm:w-[4.5rem]" />
         </div>
-        <p className="max-w-md text-center text-[15px] leading-relaxed text-[var(--lb-text-muted)]">
+        <p className="max-w-sm text-center text-sm leading-relaxed text-[var(--lb-text-muted)] sm:text-[15px]">
           Temporary uploads up to 1 GB are allowed. You should read the FAQ.
         </p>
 
-        <div className="w-full max-w-md self-center flex flex-col gap-4">
+        <div className="flex w-full flex-col gap-4">
           <UploadPanel />
           <SiteFooterNav />
         </div>
-        <p className="text-sm font-normal text-[var(--lb-text-muted)]">
-          Consider supporting TmpVault, or purchasing some stickers from the
-          Store!
-        </p>
         {/* Pill goal bar — visual echo of Litterbox support meter */}
-        <div className="space-y-2 pt-1">
+        <div className="w-full space-y-2 pt-1">
           <p className="text-center text-xs leading-snug text-[var(--lb-text-muted)]">
             Consider supporting TmpVault, or purchasing some stickers from the
             Store!
