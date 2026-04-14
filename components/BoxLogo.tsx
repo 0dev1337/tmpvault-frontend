@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** Open box — line art similar to Litterbox branding */
+/** Minimal share-bin mark with timer cue */
 export function BoxLogo({ className }: { className?: string }) {
   return (
     <svg
@@ -10,34 +10,52 @@ export function BoxLogo({ className }: { className?: string }) {
         className,
       )}
       viewBox="0 0 72 72"
+      fill="none"
     >
       <path
-        d="M8 28 L36 12 L64 28 L64 52 L36 62 L8 52 Z"
-        fill="none"
+        d="M26 19 H46"
         stroke="currentColor"
+        strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2.2"
+        strokeWidth="2.4"
       />
       <path
-        d="M8 28 L36 38 L64 28"
-        fill="none"
+        d="M20 21 H52"
         stroke="currentColor"
+        strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2.2"
+        strokeWidth="2.4"
       />
       <path
-        d="M36 12 L36 38"
-        fill="none"
+        d="M24 21 L27 52 H45 L48 21"
         stroke="currentColor"
         strokeLinejoin="round"
-        strokeWidth="2.2"
+        strokeWidth="2.4"
       />
       <path
-        d="M36 38 L36 62"
-        fill="none"
+        d="M31 31 V45"
         stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="2.4"
+      />
+      <path
+        d="M36.5 35 L31 31 L25.5 35"
+        stroke="currentColor"
+        strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2.2"
+        strokeWidth="2.4"
+      />
+      <path
+        d="M43.5 41.5 C43.5 37.9101 46.4101 35 50 35 C53.5899 35 56.5 37.9101 56.5 41.5 C56.5 45.0899 53.5899 48 50 48 C46.4101 48 43.5 45.0899 43.5 41.5 Z"
+        stroke="currentColor"
+        strokeWidth="2.4"
+      />
+      <path
+        d="M50 39 V42 L52.1 43.7"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.4"
       />
     </svg>
   );
