@@ -12,7 +12,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   return (
     <button className={className} type="button" onClick={toggleTheme}>
-      Toggle Theme
+      Go Dark?
     </button>
   );
 }
