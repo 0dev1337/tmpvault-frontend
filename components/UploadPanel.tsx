@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { ExpiryPicker, type ExpiryValue } from "@/components/ExpiryPicker";
-import { FileNamePicker } from "@/components/FileNamePicker";
+import {
+  FileNamePicker,
+  type FileNameLengthValue,
+} from "@/components/FileNamePicker";
 import { FileDropZone } from "@/components/FilePicker";
 import {
   downloadPath,
@@ -12,6 +15,7 @@ import {
 
 export function UploadPanel() {
   const [expiry, setExpiry] = useState<ExpiryValue>("1h");
+  const [fileNameLength, setFileNameLength] = useState<FileNameLengthValue>("8");
   const [file, setFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -27,7 +31,12 @@ export function UploadPanel() {
     setError(null);
     setLastId(null);
     try {
-      const r = await uploadFileWithProgress(file, expiry, setProgress);
+      const r = await uploadFileWithProgress(
+        file,
+        expiry,
+        fileNameLength,
+        setProgress,
+      );
       setLastId(r.id);
       setProgress(100);
     } catch (e) {
@@ -41,7 +50,7 @@ export function UploadPanel() {
   return (
     <div className="flex w-full flex-col gap-4">
       <ExpiryPicker value={expiry} onChange={setExpiry} />
-      <FileNamePicker />
+      <FileNamePicker value={fileNameLength} onChange={setFileNameLength} />
       <FileDropZone
         className="w-full"
         multiple={false}

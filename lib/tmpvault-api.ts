@@ -74,10 +74,12 @@ function parseUploadResponse(
 export async function uploadFile(
   file: File,
   expiry: string,
+  fileNameLength: string,
 ): Promise<UploadSuccess> {
   const body = new FormData();
   body.append("file", file);
   body.append("expiry", expiry);
+  body.append("file_name_length", fileNameLength);
 
   const res = await fetch(uploadEndpoint(), {
     method: "POST",
@@ -92,6 +94,7 @@ export async function uploadFile(
 export function uploadFileWithProgress(
   file: File,
   expiry: string,
+  fileNameLength: string,
   onProgress: (percent: number) => void,
 ): Promise<UploadSuccess> {
   return new Promise((resolve, reject) => {
@@ -99,6 +102,7 @@ export function uploadFileWithProgress(
     const form = new FormData();
     form.append("file", file);
     form.append("expiry", expiry);
+    form.append("file_name_length", fileNameLength);
 
     xhr.upload.addEventListener("progress", (e) => {
       if (e.lengthComputable && e.total > 0) {

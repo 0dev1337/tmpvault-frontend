@@ -8,9 +8,26 @@ const NAME_LEN_OPTIONS = [
   { value: "16", label: "16 chars" },
 ] as const;
 
-export function FileNamePicker() {
-  const [nameLen, setNameLen] =
-    useState<(typeof NAME_LEN_OPTIONS)[number]["value"]>("8");
+export type FileNameLengthValue = (typeof NAME_LEN_OPTIONS)[number]["value"];
+
+type FileNamePickerProps = {
+  value?: FileNameLengthValue;
+  defaultValue?: FileNameLengthValue;
+  onChange?: (value: FileNameLengthValue) => void;
+};
+
+export function FileNamePicker({
+  value,
+  defaultValue = "8",
+  onChange,
+}: FileNamePickerProps) {
+  const [internal, setInternal] = useState<FileNameLengthValue>(defaultValue);
+  const nameLen = value ?? internal;
+
+  const setNameLen = (next: FileNameLengthValue) => {
+    if (value === undefined) setInternal(next);
+    onChange?.(next);
+  };
 
   return (
     <div className="mt-2 flex w-full flex-col items-start gap-2.5">
