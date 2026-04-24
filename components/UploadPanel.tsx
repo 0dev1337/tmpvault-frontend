@@ -8,14 +8,15 @@ import {
 } from "@/components/FileNamePicker";
 import { FileDropZone } from "@/components/FilePicker";
 import {
-  downloadPath,
+  // downloadPath,
   downloadUrlAbsolute,
   uploadFileWithProgress,
 } from "@/lib/tmpvault-api";
 
 export function UploadPanel() {
   const [expiry, setExpiry] = useState<ExpiryValue>("1h");
-  const [fileNameLength, setFileNameLength] = useState<FileNameLengthValue>("8");
+  const [fileNameLength, setFileNameLength] =
+    useState<FileNameLengthValue>("8");
   const [file, setFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -48,11 +49,11 @@ export function UploadPanel() {
   }
 
   return (
-    <div className="flex w-full flex-col gap-3 sm:gap-4">
+    <div className='flex w-full flex-col gap-3 sm:gap-4'>
       <ExpiryPicker value={expiry} onChange={setExpiry} />
       <FileNamePicker value={fileNameLength} onChange={setFileNameLength} />
       <FileDropZone
-        className="w-full"
+        className='w-full'
         multiple={false}
         selectedFile={file}
         disabled={busy}
@@ -65,47 +66,46 @@ export function UploadPanel() {
         }}
       />
       <button
-        type="button"
+        type='button'
         onClick={submit}
         disabled={!file || busy}
-        className="w-full rounded-full border border-[var(--lb-blue-active-deep)] bg-[var(--lb-blue-active-deep)] px-4 py-2.5 text-sm font-bold text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-95 sm:py-3"
-      >
+        className='w-full rounded-full border border-[var(--lb-blue-active-deep)] bg-[var(--lb-blue-active-deep)] px-4 py-2.5 text-sm font-bold text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-95 sm:py-3'>
         {busy ? "Uploading…" : "Upload"}
       </button>
       {busy ? (
-        <div className="w-full space-y-1.5">
+        <div className='w-full space-y-1.5'>
           <div
-            className="h-2.5 w-full overflow-hidden rounded-full border border-[var(--lb-border)] bg-[var(--lb-blue-pale)]"
-            role="progressbar"
+            className='h-2.5 w-full overflow-hidden rounded-full border border-[var(--lb-border)] bg-[var(--lb-blue-pale)]'
+            role='progressbar'
             aria-valuenow={progress}
             aria-valuemin={0}
             aria-valuemax={100}
-            aria-label="Upload progress"
-          >
+            aria-label='Upload progress'>
             <div
-              className="h-full bg-[var(--lb-blue-active)] transition-[width] duration-150 ease-out"
+              className='h-full bg-[var(--lb-blue-active)] transition-[width] duration-150 ease-out'
               style={{ width: `${progress}%` }}
             />
           </div>
-          <p className="text-center text-xs text-[var(--lb-text-muted)]">
+          <p className='text-center text-xs text-[var(--lb-text-muted)]'>
             {progress}% uploaded
           </p>
         </div>
       ) : null}
       {error ? (
-        <p className="text-sm text-red-600 dark:text-red-400" role="alert">
+        <p className='text-sm text-red-600 dark:text-red-400' role='alert'>
           {error}
         </p>
       ) : null}
       {successUrl && lastId ? (
-        <div className="w-full rounded-xl border border-[var(--lb-border)] bg-[var(--lb-drop)] px-4 py-3">
-          <p className="text-xs font-semibold text-[var(--lb-text-muted)]">
+        <div className='w-full rounded-xl border border-[var(--lb-border)] bg-[var(--lb-drop)] px-4 py-3'>
+          <p className='text-xs font-semibold text-[var(--lb-text-muted)]'>
             Download URL
           </p>
           <a
-            href={downloadPath(lastId)}
-            className="mt-1 block break-all text-sm font-medium text-[#2d7ab8] underline underline-offset-2 dark:text-[#7eb8e0]"
-          >
+            href={successUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='mt-1 block break-all text-sm font-medium text-[#2d7ab8] underline underline-offset-2 dark:text-[#7eb8e0]'>
             {successUrl}
           </a>
         </div>
