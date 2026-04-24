@@ -1,42 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none">
-  <path
-    d="M26 19 H46"
-    stroke="#3B82C4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2.4"
-  />
-  <path
-    d="M20 21 H52"
-    stroke="#3B82C4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2.4"
-  />
-  <path
-    d="M24 21 L27 52 H45 L48 21"
-    stroke="#3B82C4"
-    stroke-linejoin="round"
-    stroke-width="2.4"
-  />
-  <path d="M31 31 V45" stroke="#3B82C4" stroke-linecap="round" stroke-width="2.4" />
-  <path
-    d="M36.5 35 L31 31 L25.5 35"
-    stroke="#3B82C4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2.4"
-  />
-  <path
-    d="M43.5 41.5 C43.5 37.9101 46.4101 35 50 35 C53.5899 35 56.5 37.9101 56.5 41.5 C56.5 45.0899 53.5899 48 50 48 C46.4101 48 43.5 45.0899 43.5 41.5 Z"
-    stroke="#3B82C4"
-    stroke-width="2.4"
-  />
-  <path
-    d="M50 39 V42 L52.1 43.7"
-    stroke="#3B82C4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2.4"
-  />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 96" width="72" height="84" fill="none">
+  <!-- File body -->
+  <path d="M6 0 L54 0 L72 18 L72 88 L6 88 Z" fill="#E6F1FB" stroke="#185FA5" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- Folded corner -->
+  <path d="M54 0 L54 18 L72 18" fill="#B5D4F4" stroke="#185FA5" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- Lines fading out -->
+  <line x1="16" y1="32" x2="62" y2="32" stroke="#185FA5" stroke-width="2" stroke-linecap="round"/>
+  <line x1="16" y1="43" x2="62" y2="43" stroke="#185FA5" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="16" y1="54" x2="52" y2="54" stroke="#185FA5" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <line x1="16" y1="65" x2="40" y2="65" stroke="#185FA5" stroke-width="2" stroke-linecap="round" opacity="0.1"/>
+  <!-- Clock badge — cx=62 r=16 → right edge x=78, bottom edge y=94, both fit in 82x96 -->
+  <circle cx="62" cy="78" r="16" fill="#185FA5"/>
+  <circle cx="62" cy="78" r="2" fill="white"/>
+  <!-- Hour hand -->
+  <line x1="62" y1="78" x2="62" y2="69" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <!-- Minute hand -->
+  <line x1="62" y1="78" x2="68" y2="81" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+  <!-- Tick marks -->
+  <line x1="62" y1="65.5" x2="62" y2="67.5" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+  <line x1="77"  y1="78"  x2="75"  y2="78"  stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+  <line x1="62"  y1="90.5" x2="62" y2="88.5" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+  <line x1="47"  y1="78"  x2="49"  y2="78"  stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
 </svg>
