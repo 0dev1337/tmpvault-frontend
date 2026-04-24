@@ -45,7 +45,7 @@ export function downloadUrlAbsolute(fileId: string): string {
   if (typeof window === "undefined") {
     return downloadPath(fileId);
   }
-  return `https://files.tmpvault.com/${downloadPath(fileId)}`;
+  return `https://files.tmpvault.com${downloadPath(fileId)}`;
 }
 
 function parseUploadResponse(
