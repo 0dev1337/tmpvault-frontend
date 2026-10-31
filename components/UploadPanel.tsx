@@ -49,7 +49,7 @@ export function UploadPanel() {
   }
 
   return (
-    <div className='flex w-full flex-col gap-3 sm:gap-4'>
+    <div className='flex w-full flex-col gap-3'>
       <ExpiryPicker value={expiry} onChange={setExpiry} />
       <FileNamePicker value={fileNameLength} onChange={setFileNameLength} />
       <FileDropZone
@@ -69,13 +69,13 @@ export function UploadPanel() {
         type='button'
         onClick={submit}
         disabled={!file || busy}
-        className='w-full rounded-full border border-[var(--lb-blue-active-deep)] bg-[var(--lb-blue-active-deep)] px-4 py-2.5 text-sm font-bold text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-95 sm:py-3'>
-        {busy ? "Uploading…" : "Upload"}
+        className='lb-pop w-full rounded-full bg-[var(--lb-blue-active-deep)] px-4 py-2.5 font-display text-base tracking-wide text-white disabled:cursor-not-allowed disabled:opacity-50'>
+        {busy ? "Uploading… ⌛" : "Upload! アップロード"}
       </button>
       {busy ? (
         <div className='w-full space-y-1.5'>
           <div
-            className='h-2.5 w-full overflow-hidden rounded-full border border-[var(--lb-border)] bg-[var(--lb-blue-pale)]'
+            className='h-3 w-full overflow-hidden rounded-full border-2 border-[var(--lb-line)] bg-[var(--lb-blue-pale)]'
             role='progressbar'
             aria-valuenow={progress}
             aria-valuemin={0}
@@ -97,7 +97,7 @@ export function UploadPanel() {
         </p>
       ) : null}
       {successUrl && lastId ? (
-        <div className='w-full rounded-xl border border-[var(--lb-border)] bg-[var(--lb-drop)] px-4 py-3'>
+        <div className='w-full rounded-2xl border-2 border-[var(--lb-line)] bg-[var(--lb-drop)] px-4 py-2.5'>
           <p className='text-xs font-semibold text-[var(--lb-text-muted)]'>
             Download URL
           </p>
@@ -105,7 +105,7 @@ export function UploadPanel() {
             href={successUrl}
             target='_blank'
             rel='noopener noreferrer'
-            className='mt-1 block break-all text-sm font-medium text-[#2d7ab8] underline underline-offset-2 dark:text-[#7eb8e0]'>
+            className='mt-1 block break-all text-sm font-medium text-[var(--lb-link)] underline underline-offset-2'>
             {successUrl}
           </a>
         </div>

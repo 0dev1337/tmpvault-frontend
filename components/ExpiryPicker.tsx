@@ -31,8 +31,13 @@ export function ExpiryPicker({
   };
 
   return (
-    <div className='mt-2 flex w-full flex-col items-start gap-2.5'>
-      <p className='text-sm font-bold text-[var(--lb-text)]'>Expire after:</p>
+    <div className='flex w-full flex-col items-start gap-2'>
+      <p className='flex items-center gap-2 text-sm font-bold text-[var(--lb-text)]'>
+        <span className='lb-sticker px-2 py-0.5 text-[11px] leading-none'>
+          期限
+        </span>
+        Expire after:
+      </p>
       <div
         role='group'
         aria-label='Expiry duration'

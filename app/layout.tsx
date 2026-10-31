@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { M_PLUS_Rounded_1c, Mochiy_Pop_One } from "next/font/google";
 import { SITE_URL } from "@/lib/env";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const rounded = M_PLUS_Rounded_1c({
+  variable: "--font-rounded",
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const pop = Mochiy_Pop_One({
+  variable: "--font-pop",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -63,9 +65,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${rounded.variable} ${pop.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
 }
