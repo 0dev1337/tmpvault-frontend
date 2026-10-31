@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteFooterNav() {
-  const linkClass = "text-[#2d7ab8] hover:underline dark:text-[#7eb8e0]";
+  const linkClass = "font-bold text-[var(--lb-link)] hover:underline";
 
   return (
     <nav

@@ -82,8 +82,8 @@ export function FileDropZone({
           emit(e.dataTransfer.files);
         }}
         className={[
-          "flex min-h-[140px] w-full flex-col items-center justify-center gap-1 rounded-xl px-4 py-6",
-          "border-2 border-dashed border-[var(--lb-drop-border)] bg-[var(--lb-drop)]",
+          "flex min-h-[104px] w-full flex-col items-center justify-center gap-1 rounded-2xl px-4 py-4 sm:min-h-[128px]",
+          "border-[3px] border-dashed border-[var(--lb-drop-border)] bg-[var(--lb-drop)]",
           "text-center transition-colors",
           !disabled && "cursor-pointer hover:bg-[var(--lb-blue-pale)]/60",
           disabled && "cursor-not-allowed opacity-70",
@@ -92,7 +92,7 @@ export function FileDropZone({
             "border-[var(--lb-blue-active)] bg-[var(--lb-blue-pale)]/80",
           hasFile
             ? "text-[var(--lb-text)]"
-            : "text-sm font-medium text-[var(--lb-blue-active-deep)]",
+            : "text-[var(--lb-blue-active-deep)]",
         ].join(" ")}>
         {hasFile && selectedFile ? (
           <>
@@ -104,7 +104,14 @@ export function FileDropZone({
             </span>
           </>
         ) : (
-          "Select or drop files."
+          <>
+            <span className="font-display text-base">
+              ✧ Select or drop files ✧
+            </span>
+            <span className="text-xs font-bold text-[var(--lb-text-muted)]">
+              ファイルをここにドロップ
+            </span>
+          </>
         )}
       </button>
     </div>
