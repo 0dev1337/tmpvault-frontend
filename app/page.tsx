@@ -97,7 +97,7 @@ export default function Home() {
             </div>
           </div>
           <p className='text-center text-[11px] text-[var(--lb-text-muted)]'>
-            Illustration by @aidigital_sensei
+            Illustration by @0dev1337
           </p>
         </section>
       </main>
