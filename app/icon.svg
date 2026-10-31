@@ -1,23 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 96" width="72" height="84" fill="none">
-  <!-- File body -->
-  <path d="M6 0 L54 0 L72 18 L72 88 L6 88 Z" fill="#E6F1FB" stroke="#185FA5" stroke-width="2.2" stroke-linejoin="round"/>
-  <!-- Folded corner -->
-  <path d="M54 0 L54 18 L72 18" fill="#B5D4F4" stroke="#185FA5" stroke-width="2.2" stroke-linejoin="round"/>
-  <!-- Lines fading out -->
-  <line x1="16" y1="32" x2="62" y2="32" stroke="#185FA5" stroke-width="2" stroke-linecap="round"/>
-  <line x1="16" y1="43" x2="62" y2="43" stroke="#185FA5" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-  <line x1="16" y1="54" x2="52" y2="54" stroke="#185FA5" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
-  <line x1="16" y1="65" x2="40" y2="65" stroke="#185FA5" stroke-width="2" stroke-linecap="round" opacity="0.1"/>
-  <!-- Clock badge — cx=62 r=16 → right edge x=78, bottom edge y=94, both fit in 82x96 -->
-  <circle cx="62" cy="78" r="16" fill="#185FA5"/>
-  <circle cx="62" cy="78" r="2" fill="white"/>
-  <!-- Hour hand -->
-  <line x1="62" y1="78" x2="62" y2="69" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <!-- Minute hand -->
-  <line x1="62" y1="78" x2="68" y2="81" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
-  <!-- Tick marks -->
-  <line x1="62" y1="65.5" x2="62" y2="67.5" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
-  <line x1="77"  y1="78"  x2="75"  y2="78"  stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
-  <line x1="62"  y1="90.5" x2="62" y2="88.5" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
-  <line x1="47"  y1="78"  x2="49"  y2="78"  stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="70 140 620 620" fill="none" stroke="#14213d" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Simplified MascotLogo: neko peeking out of a storage box, bold strokes for small sizes -->
+  <!-- Box back flap -->
+  <path d="M87.5 501 L662.5 501 L612.5 457.5 L137.5 457.5 Z" fill="#e8963a" stroke-width="22"/>
+  <!-- Head -->
+  <path d="M160 272 Q150 210 152 175 Q155 155 180 155 Q260 158 295 170 L310 192 Q390 182 478 198 L488 212 Q540 180 585 165 Q605 160 608 190 Q610 250 596 305 Q600 420 572 462 Q565 478 540 485 L320 492 Q230 490 185 445 Q150 380 160 272 Z" fill="#fffaf6" stroke-width="26"/>
+  <!-- Tabby stripes -->
+  <g stroke="#c9c9c9" stroke-width="28">
+    <path d="M318 212 L314 260"/>
+    <path d="M368 208 L366 260"/>
+    <path d="M416 208 L420 262"/>
+  </g>
+  <!-- Eyes -->
+  <g stroke="none">
+    <ellipse cx="240" cy="378" rx="78" ry="82" transform="rotate(-10 240 378)" fill="#14213d"/>
+    <ellipse cx="512" cy="392" rx="82" ry="76" fill="#14213d"/>
+    <circle cx="233" cy="342" r="34" fill="#fff"/>
+    <ellipse cx="503" cy="368" rx="40" ry="28" fill="#fff"/>
+    <ellipse cx="185" cy="440" rx="28" ry="17" fill="#f9b9cc"/>
+    <ellipse cx="575" cy="455" rx="28" ry="17" fill="#f9b9cc"/>
+  </g>
+  <!-- Box front and tape -->
+  <path d="M87.5 501 L662.5 501 L637.5 738.75 L112.5 738.75 Z" fill="#ffc46b" stroke-width="22"/>
+  <rect x="337.5" y="512" width="75" height="216" fill="#e8963a" opacity="0.55" stroke="none"/>
 </svg>

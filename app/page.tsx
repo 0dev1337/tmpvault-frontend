@@ -3,7 +3,6 @@ import { MascotLogo } from "@/components/MascotLogo";
 import { SakuraPetals } from "@/components/SakuraPetals";
 import { SiteFooterNav } from "@/components/SiteFooterNav";
 import { UploadPanel } from "@/components/UploadPanel";
-import { VaultChan } from "@/components/VaultChan";
 import { SITE_URL } from "@/lib/env";
 import mangaGirl from "@/public/manga-girl.png";
 
@@ -23,7 +22,7 @@ export default function Home() {
   };
 
   return (
-    <div className='lb-page-bg relative flex min-h-dvh flex-col text-[var(--lb-text)]'>
+    <div className='lb-page-bg relative flex min-h-dvh flex-col overflow-x-clip text-[var(--lb-text)]'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
@@ -31,26 +30,25 @@ export default function Home() {
       <SakuraPetals />
       {/* Single screen: stacked on mobile, hero | upload panel on desktop */}
       <main className='relative z-10 mx-auto grid w-full max-w-md flex-1 content-center gap-3 px-4 py-4 sm:gap-4 lg:max-w-5xl lg:grid-cols-2 lg:gap-x-14 lg:gap-y-4 lg:px-8'>
-        <header className='flex items-center justify-center gap-3 lg:col-start-1 lg:flex-col lg:gap-1'>
+        <header className='flex items-center justify-center gap-2 sm:gap-3 lg:col-start-1 lg:flex-col lg:gap-1'>
           <div className='relative grid shrink-0 place-items-center'>
-            <div className='lb-burst absolute size-36 rounded-full sm:size-44 lg:size-72' />
-            <MascotLogo className='lb-bob relative h-20 w-20 sm:h-24 sm:w-24 lg:h-40 lg:w-40' />
+            <div className='lb-burst absolute size-28 rounded-full sm:size-44 lg:size-72' />
+            <MascotLogo className='lb-bob relative h-16 w-16 sm:h-24 sm:w-24 lg:h-40 lg:w-40' />
             <span className='lb-bubble absolute -right-28 top-0 hidden whitespace-nowrap px-3 py-1 text-xs font-bold text-[var(--lb-blue-active-deep)] lg:block'>
               Nya~ drop it! ♡
             </span>
           </div>
           <div className='min-w-0 text-left lg:text-center'>
-            <h1 className='font-display text-4xl leading-none text-[var(--lb-blue-active-deep)] [-webkit-text-stroke:1.5px_var(--lb-line)] [text-shadow:3px_3px_0_var(--lb-shadow)] sm:text-5xl lg:text-7xl'>
+            <h1 className='font-display text-3xl leading-none text-[var(--lb-blue-active-deep)] [-webkit-text-stroke:1.5px_var(--lb-line)] [text-shadow:3px_3px_0_var(--lb-shadow)] sm:text-5xl lg:text-7xl'>
               TmpVault
             </h1>
-            <p className='mt-1.5 text-sm font-bold text-[var(--lb-text)] sm:text-base lg:mt-3 lg:text-lg'>
+            <p className='mt-1.5 text-xs font-bold text-[var(--lb-text)] sm:text-base lg:mt-3 lg:text-lg'>
               <span className='lb-sticker mr-1.5 inline-block px-2 py-0.5 text-xs'>
                 一時保管庫
               </span>
               Temporary file hosting
             </p>
           </div>
-          <VaultChan className='lb-bob h-[77px] w-14 shrink-0 sm:h-[110px] sm:w-20 lg:hidden' />
         </header>
 
         <p className='text-center text-sm leading-snug text-[var(--lb-text-muted)] sm:text-[15px] lg:col-start-1'>
@@ -62,12 +60,12 @@ export default function Home() {
           !
         </p>
 
-        <section className='relative mt-2 lg:col-start-2 lg:row-span-4 lg:row-start-1 lg:mt-16 lg:self-center'>
+        <section className='relative mt-14 lg:col-start-2 lg:row-span-4 lg:row-start-1 lg:mt-16 lg:self-center'>
           <Image
             src={mangaGirl}
             alt=''
             priority
-            className='pointer-events-none absolute -right-2 -top-[140px] hidden w-48 drop-shadow-[4px_4px_0_var(--lb-shadow)] lg:block'
+            className='pointer-events-none absolute -top-[72px] right-3 w-24 drop-shadow-[3px_3px_0_var(--lb-shadow)] lg:-right-2 lg:-top-[140px] lg:w-48 lg:drop-shadow-[4px_4px_0_var(--lb-shadow)]'
           />
           <div className='lb-card relative p-4 sm:p-5'>
             <span className='lb-sticker absolute -top-3.5 left-5 px-3 py-0.5 font-display text-xs'>
@@ -98,7 +96,7 @@ export default function Home() {
               ${DEMO_CURRENT.toLocaleString()}/${DEMO_GOAL.toLocaleString()}
             </div>
           </div>
-          <p className='hidden text-center text-[11px] text-[var(--lb-text-muted)] lg:block'>
+          <p className='text-center text-[11px] text-[var(--lb-text-muted)]'>
             Illustration by @aidigital_sensei
           </p>
         </section>
