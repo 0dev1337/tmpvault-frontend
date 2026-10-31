@@ -10,7 +10,7 @@ import { FileDropZone } from "@/components/FilePicker";
 import {
   // downloadPath,
   downloadUrlAbsolute,
-  uploadFileWithProgress,
+  uploadFileChunked,
 } from "@/lib/tmpvault-api";
 
 export function UploadPanel() {
@@ -32,7 +32,7 @@ export function UploadPanel() {
     setError(null);
     setLastId(null);
     try {
-      const r = await uploadFileWithProgress(
+      const r = await uploadFileChunked(
         file,
         expiry,
         fileNameLength,
